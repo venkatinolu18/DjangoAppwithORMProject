@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Create - My Website{% endblock %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="row" style="background-color: lime;color:blue;text-align: center;margin-bottom: 20px;">
+        <div class="col-sm-12">
+            <h1>Employee Registration</h1>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 6px;">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-2"><b>Employee Id</b></div>
+        <div class="col-sm-3">
+            <input type="text" id="txtEmpId" name="EmpId" class="form-control" placeholder="Enter employee id...!" />
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row" style="margin-bottom: 6px;">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-2"><b>Name</b></div>
+        <div class="col-sm-3">
+            <input type="text" id="txtName" name="Ename"  class="form-control" placeholder="Enter name...!" />
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row" style="margin-bottom: 6px;">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-2"><b>Password</b></div>
+        <div class="col-sm-3">
+            <input type="password" id="txtPwd" name="Password"  class="form-control" placeholder="Enter password...!" />
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row" style="margin-bottom: 6px;">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-2"><b>Gender</b></div>
+        <div class="col-sm-3">
+            <input type="radio" id="rbtnMale" name="Gender" value="Male"/> Male
+            <input type="radio" id="rbtnFemale" name="Gender" value="Female"/> Female
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row" style="margin-bottom: 6px;">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-2"><b>Date of birth</b></div>
+        <div class="col-sm-3">
+            <input type="date" id="txtDob" name="Dob"  class="form-control" placeholder="Select Date of birth...!" />
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row" style="margin-bottom: 6px;">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-2"><b>Phone</b></div>
+        <div class="col-sm-3">
+            <input type="text" id="txtPhone" name="Phone"  class="form-control" placeholder="Enter phone...!" />
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row" style="margin-bottom: 6px;">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-2"><b>Email</b></div>
+        <div class="col-sm-3">
+            <input type="text" id="txtEmail" name="Email"  class="form-control" placeholder="Enter email address...!" />
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row" style="margin-bottom: 6px;">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-2"><b>Salary</b></div>
+        <div class="col-sm-3">
+            <input type="text" id="txtSalary" name="Salary"  class="form-control" placeholder="Enter salary...!" />
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row" style="margin-bottom: 6px;">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-2"><b>Address</b></div>
+        <div class="col-sm-3">
+            <textarea id="txtAddress" name="Address" rows="3" class="form-control" placeholder="Enter phone...!"></textarea>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row" style="margin-bottom: 6px;">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-2"><b>Department</b></div>
+        <div class="col-sm-3">
+            <select id="ddlDeptNo" name="DeptNo" class="form-control">
+                <option value="0">-Select Department-</option>
+                {% for dept in deptList %}
+                    <option value="{{dept.DeptNo}}">{{dept.Dname}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row" style="margin-bottom: 6px;text-align: center;">
+        <div class="col-sm-12">
+            <input type="submit" name="action" value="Register" class="btn btn-primary" />
+            <input type="submit" name="action" value="Cancel" class="btn btn-danger" />
+        </div>       
+    </div>
+</form>    
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home - My Website{% endblock %}
+
+{% block content %}
+    <div class="row" style="background-color: yellow;color:red;text-align: center; margin-bottom: 20px;">
+        <div class="col-sm-12">
+            <h1>Employees Details</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>EmpId</th>
+                        <th>Ename</th>
+                        <th>Password</th>
+                        <th>Gender</th>
+                        <th>Date of Birth</th>
+                        <th>Phone</th>
+                        <th>Email</th>                        
+                        <th>Salary</th>
+                        <th>Address</th>
+                        <th>Department</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for emp in empList %}
+                        <tr>
+                            <td>{{emp.EmpId}}</td>
+                            <td>{{emp.Ename}}</td>
+                            <td>{{emp.Password}}</td>
+                            <td>{{emp.Gender}}</td>
+                            <td>{{emp.Dob}}</td>
+                            <td>{{emp.Phone}}</td>
+                            <td>{{emp.Email}}</td>
+                            <td>{{emp.Salary}}</td>
+                            <td>{{emp.Address}}</td>
+                            <td>{{emp.DeptNo.DeptNo}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

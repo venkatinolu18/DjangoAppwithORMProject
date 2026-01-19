@@ -1,0 +1,12 @@
+.homeBackgroundImg {
+    background-image: url("{% static 'images/Img1.jpg' %}");
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding-top: 150px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+}
