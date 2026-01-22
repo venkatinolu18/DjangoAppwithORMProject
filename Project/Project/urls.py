@@ -21,3 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('App.urls')),
 ]
+# 👇 register exception handlers (OUTSIDE urlpatterns)
+handler404 = 'App.views.pagenotfound'
+handler500 = 'App.views.httpExceptionHandle'
+

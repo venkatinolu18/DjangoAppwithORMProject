@@ -3,6 +3,103 @@
 {% block title %}Delete - My Website{% endblock %}
 
 {% block content %}
-    <h2>Delete Page</h2>
-    <p>Welcome to the home page of My Website. Explore our features and enjoy your stay!</p>
+<form method="POST">
+    {% csrf_token %}
+    <div class="row" style="background-color: green;color:orangered;text-align: center;margin-bottom: 20px;">
+        <div class="col-sm-12">
+            <h1>Employee Deletion</h1>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 6px;">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-2"><b>Employee Id</b></div>
+        <div class="col-sm-3">
+            <input type="text" id="txtEmpId" name="EmpId" value="{{emp.EmpId}}" class="form-control" readonly="readonly" placeholder="Enter employee id...!" />
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row" style="margin-bottom: 6px;">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-2"><b>Name</b></div>
+        <div class="col-sm-3">
+            <input type="text" id="txtName" name="Ename" value="{{emp.Ename}}" class="form-control" readonly="readonly" placeholder="Enter name...!" />
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row" style="margin-bottom: 6px;">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-2"><b>Password</b></div>
+        <div class="col-sm-3">
+            <input type="password" id="txtPwd" name="Password" value="{{emp.Password}}" class="form-control" readonly="readonly" placeholder="Enter password...!" />
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row" style="margin-bottom: 6px;">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-2"><b>Gender</b></div>
+         <div class="col-sm-3">
+            <input type="text" id="txtGender" name="Gender" value="{{emp.Gender}}" class="form-control" readonly="readonly" placeholder="Enter gender...!" />
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row" style="margin-bottom: 6px;">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-2"><b>Date of birth</b></div>
+        <div class="col-sm-3">
+            <input type="date" id="txtDob" name="Dob" value="{{emp.Dob | date:'Y-m-d'}}" readonly="readonly" class="form-control" placeholder="Select Date of birth...!" />
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row" style="margin-bottom: 6px;">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-2"><b>Phone</b></div>
+        <div class="col-sm-3">
+            <input type="text" id="txtPhone" name="Phone" value="{{emp.Phone}}" readonly="readonly" class="form-control" placeholder="Enter phone...!" />
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row" style="margin-bottom: 6px;">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-2"><b>Email</b></div>
+        <div class="col-sm-3">
+            <input type="text" id="txtEmail" name="Email" value="{{emp.Email}}" readonly="readonly" class="form-control" placeholder="Enter email address...!" />
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row" style="margin-bottom: 6px;">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-2"><b>Salary</b></div>
+        <div class="col-sm-3">
+            <input type="text" id="txtSalary" name="Salary" value="{{emp.Salary}}" readonly="readonly" class="form-control" placeholder="Enter salary...!" />
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row" style="margin-bottom: 6px;">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-2"><b>Address</b></div>
+        <div class="col-sm-3">
+            <textarea id="txtAddress" name="Address" rows="3" class="form-control" readonly="readonly" placeholder="Enter phone...!">{{emp.Address}}</textarea>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row" style="margin-bottom: 6px;">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-2"><b>Department</b></div>
+        <div class="col-sm-3">
+            <select id="ddlDeptNo" name="DeptNo" class="form-control" readonly="readonly">
+                <option value="0">-Select Department-</option>
+                {% for dept in deptList %}
+                    <option value="{{dept.DeptNo}}" {% if emp.DeptNo.DeptNo == dept.DeptNo %}selected{% endif %}>{{dept.Dname}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row" style="margin-bottom: 6px;text-align: center;">
+        <div class="col-sm-12">
+            <input type="submit" name="action" value="Do you really want to delete this record?" class="btn btn-danger" />
+            <input type="submit" name="action" value="Return back to home page" class="btn btn-info" />
+        </div>       
+    </div>
+</form>    
 {% endblock %}

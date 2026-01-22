@@ -23,6 +23,7 @@
                         <th>Salary</th>
                         <th>Address</th>
                         <th>Department</th>
+                        <th>Operations</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,6 +39,14 @@
                             <td>{{emp.Salary}}</td>
                             <td>{{emp.Address}}</td>
                             <td>{{emp.DeptNo.DeptNo}}</td>
+                            <td>
+                                <a href="{% url 'edit' emp.EmpId %}" class="btn btn-success" >Edit</a> |
+                                <a href="{% url 'delete' emp.EmpId %}" class="btn btn-danger">Delete</a>
+                            </td>
+                            <!-- <td>
+                                <a href="/edit/{{ emp.EmpId}}/">Edit</a> |
+                                <a href="/delete/{{ emp.EmpId }}/">Delete</a>
+                            </td> -->
                         </tr>
                     {% endfor %}
                 </tbody>

@@ -14,74 +14,92 @@
         <div class="col-sm-4"></div>
         <div class="col-sm-2"><b>Employee Id</b></div>
         <div class="col-sm-3">
-            <input type="text" id="txtEmpId" name="EmpId" class="form-control" placeholder="Enter employee id...!" />
+            <input type="text" id="txtEmpId" name="EmpId" value="{{data.EmpId}}" class="form-control" placeholder="Enter employee id...!" />
         </div>
-        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+            <span style="color:red;">{% if errors.EmpId %}{{ errors.EmpId }}{% endif %}</span>
+        </div>
     </div>
     <div class="row" style="margin-bottom: 6px;">
         <div class="col-sm-4"></div>
         <div class="col-sm-2"><b>Name</b></div>
         <div class="col-sm-3">
-            <input type="text" id="txtName" name="Ename"  class="form-control" placeholder="Enter name...!" />
+            <input type="text" id="txtName" name="Ename" value="{{data.Ename}}" class="form-control" placeholder="Enter name...!" />
         </div>
-        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+            <span style="color:red;">{% if errors.Ename %}{{ errors.Ename }}{% endif %}</span>
+        </div>
     </div>
     <div class="row" style="margin-bottom: 6px;">
         <div class="col-sm-4"></div>
         <div class="col-sm-2"><b>Password</b></div>
         <div class="col-sm-3">
-            <input type="password" id="txtPwd" name="Password"  class="form-control" placeholder="Enter password...!" />
+            <input type="password" id="txtPwd" name="Password" value="{{data.Password}}" autocomplete="new-password" class="form-control" placeholder="Enter password...!" />
         </div>
-        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+            <span style="color:red;">{% if errors.Password %}{{ errors.Password }}{% endif %}</span>
+        </div>
     </div>
     <div class="row" style="margin-bottom: 6px;">
         <div class="col-sm-4"></div>
         <div class="col-sm-2"><b>Gender</b></div>
         <div class="col-sm-3">
-            <input type="radio" id="rbtnMale" name="Gender" value="Male"/> Male
-            <input type="radio" id="rbtnFemale" name="Gender" value="Female"/> Female
+            <input type="radio" id="rbtnMale" name="Gender" value="Male" {% if data.Gender == "Male" %}checked{% endif %}/> Male
+            <input type="radio" id="rbtnFemale" name="Gender" value="Female" {% if data.Gender == "Female" %}checked{% endif %}/> Female
         </div>
-        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+            <span style="color:red;">{% if errors.Gender %}{{ errors.Gender }}{% endif %}</span>
+        </div>
     </div>
     <div class="row" style="margin-bottom: 6px;">
         <div class="col-sm-4"></div>
         <div class="col-sm-2"><b>Date of birth</b></div>
         <div class="col-sm-3">
-            <input type="date" id="txtDob" name="Dob"  class="form-control" placeholder="Select Date of birth...!" />
+            <input type="date" id="txtDob" name="Dob" value="{{data.Dob}}" class="form-control" placeholder="Select Date of birth...!" />
         </div>
-        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+            <span style="color:red;">{% if errors.Dob %}{{ errors.Dob }}{% endif %}</span>
+        </div>
     </div>
     <div class="row" style="margin-bottom: 6px;">
         <div class="col-sm-4"></div>
         <div class="col-sm-2"><b>Phone</b></div>
         <div class="col-sm-3">
-            <input type="text" id="txtPhone" name="Phone"  class="form-control" placeholder="Enter phone...!" />
+            <input type="text" id="txtPhone" name="Phone" value="{{data.Phone}}" class="form-control" placeholder="Enter phone...!" />
         </div>
-        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+            <span style="color:red;">{% if errors.Phone %}{{ errors.Phone }}{% endif %}</span>
+        </div>
     </div>
     <div class="row" style="margin-bottom: 6px;">
         <div class="col-sm-4"></div>
         <div class="col-sm-2"><b>Email</b></div>
         <div class="col-sm-3">
-            <input type="text" id="txtEmail" name="Email"  class="form-control" placeholder="Enter email address...!" />
+            <input type="text" id="txtEmail" name="Email" value="{{data.Email}}" autocomplete="off" class="form-control" placeholder="Enter email address...!" />
         </div>
-        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+            <span style="color:red;">{% if errors.Email %}{{ errors.Email }}{% endif %}</span>
+        </div>
     </div>
     <div class="row" style="margin-bottom: 6px;">
         <div class="col-sm-4"></div>
         <div class="col-sm-2"><b>Salary</b></div>
         <div class="col-sm-3">
-            <input type="text" id="txtSalary" name="Salary"  class="form-control" placeholder="Enter salary...!" />
+            <input type="text" id="txtSalary" name="Salary" value="{{data.Salary}}" class="form-control" placeholder="Enter salary...!" />
         </div>
-        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+            <span style="color:red;">{% if errors.Salary %}{{ errors.Salary }}{% endif %}</span>
+        </div>
     </div>
     <div class="row" style="margin-bottom: 6px;">
         <div class="col-sm-4"></div>
         <div class="col-sm-2"><b>Address</b></div>
         <div class="col-sm-3">
-            <textarea id="txtAddress" name="Address" rows="3" class="form-control" placeholder="Enter phone...!"></textarea>
+            <textarea id="txtAddress" name="Address" rows="3" class="form-control" placeholder="Enter phone...!">{{data.Address}}</textarea>
         </div>
-        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+            <span style="color:red;">{% if errors.Address %}{{ errors.Address }}{% endif %}</span>
+        </div>
     </div>
     <div class="row" style="margin-bottom: 6px;">
         <div class="col-sm-4"></div>
@@ -90,11 +108,13 @@
             <select id="ddlDeptNo" name="DeptNo" class="form-control">
                 <option value="0">-Select Department-</option>
                 {% for dept in deptList %}
-                    <option value="{{dept.DeptNo}}">{{dept.Dname}}</option>
+                    <option value="{{dept.DeptNo}}" {% if data.DeptNo.DeptNo == dept.DeptNo %}selected{% endif %}>{{dept.Dname}}</option>
                 {% endfor %}
             </select>
         </div>
-        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+            <span style="color:red;">{% if errors.DeptNo %}{{ errors.DeptNo }}{% endif %}</span>
+        </div>
     </div>
     <div class="row" style="margin-bottom: 6px;text-align: center;">
         <div class="col-sm-12">
